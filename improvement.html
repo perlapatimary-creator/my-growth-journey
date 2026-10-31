@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Improvement Plan | My Growth Journey</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* IMPROVEMENT PAGE */
+
+        .improvement-header {
+            margin-bottom: 25px;
+        }
+
+        .improvement-header h1 {
+            color: #8D4E38;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .improvement-header p {
+            color: #8b7768;
+            line-height: 1.7;
+        }
+
+        .improvement-banner {
+            background: linear-gradient(135deg, #8D4E38, #B9795B);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+
+        .improvement-banner h2 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .improvement-banner p {
+            line-height: 1.8;
+            max-width: 650px;
+        }
+
+        .improvement-summary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .summary-card {
+            background: #fffdf9;
+            border: 1px solid #E8D4BF;
+            padding: 22px;
+            border-radius: 16px;
+        }
+
+        .summary-card span {
+            color: #8b7768;
+            font-size: 13px;
+        }
+
+        .summary-card h2 {
+            color: #8D4E38;
+            font-size: 28px;
+            margin-top: 10px;
+        }
+
+        .improvement-form {
+            background: #fffdf9;
+            border: 1px solid #E8D4BF;
+            padding: 28px;
+            border-radius: 20px;
+            margin-bottom: 35px;
+        }
+
+        .improvement-form h2 {
+            color: #8D4E38;
+            margin-bottom: 8px;
+        }
+
+        .form-description {
+            color: #8b7768;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            color: #684735;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #E8D4BF;
+            border-radius: 10px;
+            background: #F8F1E7;
+            color: #5c3b2e;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #8D4E38;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .save-button {
+            background: #8D4E38;
+            color: white;
+            border: none;
+            padding: 13px 25px;
+            border-radius: 10px;
+            font-family: inherit;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .cancel-button {
+            background: #E8D4BF;
+            color: #8D4E38;
+            border: none;
+            padding: 13px 25px;
+            border-radius: 10px;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .plans-section h2 {
+            color: #8D4E38;
+            margin-bottom: 8px;
+        }
+
+        .plans-description {
+            color: #8b7768;
+            margin-bottom: 20px;
+        }
+
+        .plans-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .plan-card {
+            background: #fffdf9;
+            border: 1px solid #E8D4BF;
+            border-radius: 18px;
+            padding: 24px;
+        }
+
+        .plan-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .plan-card h3 {
+            color: #8D4E38;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .priority-badge {
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .priority-high {
+            background: #f4d6ce;
+            color: #8D4E38;
+        }
+
+        .priority-medium {
+            background: #f2e4c7;
+            color: #88642d;
+        }
+
+        .priority-low {
+            background: #dce9d8;
+            color: #4c7046;
+        }
+
+        .plan-details {
+            color: #725d4c;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+        .plan-meta {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+            font-size: 12px;
+            color: #8b7768;
+            margin-bottom: 15px;
+        }
+
+        .plan-status {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #E8D4BF;
+            border-radius: 9px;
+            background: #F8F1E7;
+            color: #8D4E38;
+            font-family: inherit;
+            margin-bottom: 15px;
+        }
+
+        .plan-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .plan-actions button {
+            border: none;
+            padding: 9px 15px;
+            border-radius: 8px;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .edit-plan {
+            background: #E8D4BF;
+            color: #8D4E38;
+        }
+
+        .delete-plan {
+            background: #f4e1dc;
+            color: #9b4337;
+        }
+
+        .empty-plans {
+            background: #fffdf9;
+            border: 1px dashed #B9795B;
+            border-radius: 15px;
+            padding: 30px;
+            color: #8b7768;
+            text-align: center;
+            grid-column: 1 / -1;
+        }
+
+        @media (max-width: 768px) {
+
+            .form-grid,
+            .plans-container {
+                grid-template-columns: 1fr;
+            }
+
+            .improvement-summary {
+                grid-template-columns: 1fr;
+            }
+
+            .improvement-header h1 {
+                font-size: 24px;
+            }
+
+            .improvement-form {
+                padding: 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">✦</div>
+
+            <div>
+                <h2>My Journey</h2>
+                <p>Personal Growth</p>
+            </div>
+        </div>
+
+        <div class="profile">
+
+            <div class="profile-avatar">M</div>
+
+            <div>
+                <h3>My Space</h3>
+                <p>Becoming Better</p>
+            </div>
+
+        </div>
+
+        <nav class="navigation">
+
+            <p class="nav-heading">MENU</p>
+
+            <a href="index.html" class="nav-link">
+                <span>▦</span> Dashboard
+            </a>
+
+            <a href="self-analysis.html" class="nav-link">
+                <span>♡</span> Positives & Negatives
+            </a>
+
+            <a href="improvement.html" class="nav-link active">
+                <span>↗</span> What Should I Change?
+            </a>
+
+            <a href="goals.html" class="nav-link">
+                <span>◎</span> Monthly Goals
+            </a>
+
+            <a href="skills.html" class="nav-link">
+                <span>✎</span> Skills Development
+            </a>
+
+            <a href="money.html" class="nav-link">
+                <span>₹</span> Money & Freelancing
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <p>
+                “Small steps every day
+                lead to big changes.”
+            </p>
+
+            <span>♡ Keep Growing</span>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <!-- HEADER -->
+
+        <header class="top-header">
+
+            <div>
+
+                <p class="date-label">PERSONAL IMPROVEMENT</p>
+
+                <h1>My Better Self 🌱</h1>
+
+                <p class="header-subtitle">
+                    Identify what needs to change.
+                    Create a plan. Take action.
+                </p>
+
+            </div>
+
+            <div class="header-actions">
+
+                <a href="index.html" class="welcome-button">
+                    ← Dashboard
+                </a>
+
+                <div class="header-avatar">M</div>
+
+            </div>
+
+        </header>
+
+
+        <!-- INTRODUCTION -->
+
+        <section class="improvement-header">
+
+            <h1>What Should I Change?</h1>
+
+            <p>
+                Every mistake is an opportunity to improve.
+                Choose one small change and work on it consistently.
+            </p>
+
+        </section>
+
+
+        <!-- BANNER -->
+
+        <section class="improvement-banner">
+
+            <h2>Be Better Than Yesterday ✨</h2>
+
+            <p>
+                You don't need to change everything at once.
+                Start with one habit, one decision and one small action.
+                Your future self will thank you.
+            </p>
+
+        </section>
+
+
+        <!-- SUMMARY -->
+
+        <section class="improvement-summary">
+
+            <div class="summary-card">
+
+                <span>Total Improvement Plans</span>
+
+                <h2 id="totalPlans">0</h2>
+
+            </div>
+
+            <div class="summary-card">
+
+                <span>In Progress</span>
+
+                <h2 id="inProgressPlans">0</h2>
+
+            </div>
+
+            <div class="summary-card">
+
+                <span>Changes Completed</span>
+
+                <h2 id="completedPlans">0</h2>
+
+            </div>
+
+        </section>
+
+
+        <!-- ADD IMPROVEMENT PLAN -->
+
+        <section class="improvement-form">
+
+            <h2 id="formTitle">Create My Improvement Plan</h2>
+
+            <p class="form-description">
+                Turn a negative habit into a positive action.
+            </p>
+
+            <form id="improvementForm">
+
+                <div class="form-grid">
+
+                    <!-- WHAT TO CHANGE -->
+
+                    <div class="form-group full-width">
+
+                        <label for="changeTitle">
+                            What Should I Change?
+                        </label>
+
+                        <input
+                            type="text"
+                            id="changeTitle"
+                            placeholder="Example: I want to stop wasting time"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- WHY -->
+
+                    <div class="form-group full-width">
+
+                        <label for="changeReason">
+                            Why Do I Want to Change This?
+                        </label>
+
+                        <textarea
+                            id="changeReason"
+                            placeholder="Explain why this change is important to you..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- ACTION -->
+
+                    <div class="form-group full-width">
+
+                        <label for="actionPlan">
+                            What Action Will I Take?
+                        </label>
+
+                        <textarea
+                            id="actionPlan"
+                            placeholder="Example: I will study for 30 minutes without using my phone."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- PRIORITY -->
+
+                    <div class="form-group">
+
+                        <label for="priority">
+                            Priority
+                        </label>
+
+                        <select id="priority">
+
+                            <option value="High">High Priority</option>
+
+                            <option value="Medium" selected>
+                                Medium Priority
+                            </option>
+
+                            <option value="Low">Low Priority</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- TARGET DATE -->
+
+                    <div class="form-group">
+
+                        <label for="targetDate">
+                            Target Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="targetDate"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- STATUS -->
+
+                    <div class="form-group full-width">
+
+                        <label for="planStatus">
+                            Current Status
+                        </label>
+
+                        <select id="planStatus">
+
+                            <option value="Not Started">
+                                Not Started
+                            </option>
+
+                            <option value="In Progress">
+                                In Progress
+                            </option>
+
+                            <option value="Completed">
+                                Completed
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BUTTONS -->
+
+                <div class="form-buttons">
+
+                    <button
+                        type="submit"
+                        class="save-button"
+                        id="submitButton"
+                    >
+                        Save Improvement Plan ♡
+                    </button>
+
+                    <button
+                        type="button"
+                        class="cancel-button"
+                        id="cancelButton"
+                        onclick="cancelEdit()"
+                        style="display:none;"
+                    >
+                        Cancel
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- MY IMPROVEMENT PLANS -->
+
+        <section class="plans-section">
+
+            <h2>My Improvement Journey 🌷</h2>
+
+            <p class="plans-description">
+                Track the changes you are making in your life.
+            </p>
+
+            <div class="plans-container" id="plansContainer">
+
+                <div class="empty-plans">
+
+                    <h3>No improvement plans yet.</h3>
+
+                    <p>
+                        Create your first improvement plan above
+                        and start becoming your better self.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+
+            <p>Made with ♡ for my future self.</p>
+
+            <span>My Growth Journey © 2026</span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+    // Get elements
+
+    const improvementForm =
+        document.getElementById("improvementForm");
+
+    const plansContainer =
+        document.getElementById("plansContainer");
+
+
+    // Store plans in browser
+
+    function getPlans() {
+
+        return JSON.parse(
+            localStorage.getItem("myImprovementPlans") || "[]"
+        );
+
+    }
+
+
+    // Save plans
+
+    function storePlans(plans) {
+
+        localStorage.setItem(
+            "myImprovementPlans",
+            JSON.stringify(plans)
+        );
+
+    }
+
+
+    // Edit mode
+
+    let editingPlanId = null;
+
+
+    // Save or update plan
+
+    improvementForm.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        const title =
+            document.getElementById("changeTitle").value.trim();
+
+        const reason =
+            document.getElementById("changeReason").value.trim();
+
+        const action =
+            document.getElementById("actionPlan").value.trim();
+
+        const priority =
+            document.getElementById("priority").value;
+
+        const targetDate =
+            document.getElementById("targetDate").value;
+
+        const status =
+            document.getElementById("planStatus").value;
+
+
+        if (!title || !reason || !action || !targetDate) {
+
+            alert("Please fill in all required fields.");
+
+            return;
+
+        }
+
+
+        let plans = getPlans();
+
+
+        // Update existing plan
+
+        if (editingPlanId !== null) {
+
+            plans = plans.map(function(plan) {
+
+                if (plan.id === editingPlanId) {
+
+                    return {
+
+                        ...plan,
+
+                        title: title,
+
+                        reason: reason,
+
+                        action: action,
+
+                        priority: priority,
+
+                        targetDate: targetDate,
+
+                        status: status
+
+                    };
+
+                }
+
+                return plan;
+
+            });
+
+        }
+
+
+        // Create new plan
+
+        else {
+
+            const newPlan = {
+
+                id: Date.now(),
+
+                title: title,
+
+                reason: reason,
+
+                action: action,
+
+                priority: priority,
+
+                targetDate: targetDate,
+
+                status: status
+
+            };
+
+            plans.push(newPlan);
+
+        }
+
+
+        storePlans(plans);
+
+
+        cancelEdit();
+
+        displayPlans();
+
+    });
+
+
+    // Display plans
+
+    function displayPlans() {
+
+        const plans = getPlans();
+
+
+        // Summary counts
+
+        document.getElementById("totalPlans").textContent =
+            plans.length;
+
+        document.getElementById("inProgressPlans").textContent =
+            plans.filter(
+                plan => plan.status === "In Progress"
+            ).length;
+
+        document.getElementById("completedPlans").textContent =
+            plans.filter(
+                plan => plan.status === "Completed"
+            ).length;
+
+
+        // Empty state
+
+        if (plans.length === 0) {
+
+            plansContainer.innerHTML = `
+
+                <div class="empty-plans">
+
+                    <h3>No improvement plans yet.</h3>
+
+                    <p>
+                        Create your first improvement plan above
+                        and start becoming your better self.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        // Sort by target date
+
+        plans.sort(function(a, b) {
+
+            return a.targetDate.localeCompare(b.targetDate);
+
+        });
+
+
+        plansContainer.innerHTML = "";
+
+
+        plans.forEach(function(plan) {
+
+            const card = document.createElement("div");
+
+            card.className = "plan-card";
+
+
+            // Priority class
+
+            let priorityClass = "priority-medium";
+
+            if (plan.priority === "High") {
+
+                priorityClass = "priority-high";
+
+            }
+
+            else if (plan.priority === "Low") {
+
+                priorityClass = "priority-low";
+
+            }
+            // Create plan card content
+
+            card.innerHTML = `
+                <div class="plan-top">
+                    <div>
+                        <h3>${escapeHTML(plan.title)}</h3>
+                    </div>
+
+                    <span class="priority-badge ${priorityClass}">
+                        ${escapeHTML(plan.priority)} Priority
+                    </span>
+                </div>
+
+                <div class="plan-details">
+                    <strong>Why I want to change:</strong>
+                    <p>${escapeHTML(plan.reason)}</p>
+
+                    <strong>My Action Plan:</strong>
+                    <p>${escapeHTML(plan.action)}</p>
+                </div>
+
+                <div class="plan-meta">
+                    <span>🎯 Target: ${escapeHTML(plan.targetDate)}</span>
+                </div>
+
+                <label for="status-${plan.id}">
+                    Update Status
+                </label>
+
+                <select
+                    class="plan-status"
+                    id="status-${plan.id}"
+                    onchange="updatePlanStatus(${plan.id}, this.value)"
+                >
+                    <option value="Not Started"
+                        ${plan.status === "Not Started" ? "selected" : ""}>
+                        Not Started
+                    </option>
+
+                    <option value="In Progress"
+                        ${plan.status === "In Progress" ? "selected" : ""}>
+                        In Progress
+                    </option>
+
+                    <option value="Completed"
+                        ${plan.status === "Completed" ? "selected" : ""}>
+                        Completed
+                    </option>
+                </select>
+
+                <div class="plan-actions">
+                    <button
+                        class="edit-plan"
+                        onclick="editPlan(${plan.id})"
+                    >
+                        ✎ Edit
+                    </button>
+
+                    <button
+                        class="delete-plan"
+                        onclick="deletePlan(${plan.id})"
+                    >
+                        🗑 Delete
+                    </button>
+                </div>
+            `;
+
+            plansContainer.appendChild(card);
+
+        });
+
+    }
+
+
+    // Prevent user-entered text from being treated as HTML
+
+    function escapeHTML(value) {
+
+        return String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+
+    }
+
+
+    // Update plan status
+
+    function updatePlanStatus(id, newStatus) {
+
+        let plans = getPlans();
+
+        plans = plans.map(function(plan) {
+
+            if (plan.id === id) {
+
+                return {
+                    ...plan,
+                    status: newStatus
+                };
+
+            }
+
+            return plan;
+
+        });
+
+        storePlans(plans);
+
+        displayPlans();
+
+    }
+
+
+    // Edit plan
+
+    function editPlan(id) {
+
+        const plans = getPlans();
+
+        const plan = plans.find(function(item) {
+
+            return item.id === id;
+
+        });
+
+        if (!plan) return;
+
+        editingPlanId = id;
+
+        document.getElementById("changeTitle").value =
+            plan.title;
+
+        document.getElementById("changeReason").value =
+            plan.reason;
+
+        document.getElementById("actionPlan").value =
+            plan.action;
+
+        document.getElementById("priority").value =
+            plan.priority;
+
+        document.getElementById("targetDate").value =
+            plan.targetDate;
+
+        document.getElementById("planStatus").value =
+            plan.status;
+
+        document.getElementById("formTitle").textContent =
+            "Edit My Improvement Plan";
+
+        document.getElementById("submitButton").textContent =
+            "Update Improvement Plan ♡";
+
+        document.getElementById("cancelButton").style.display =
+            "inline-block";
+
+        document.getElementById("improvementForm").scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+
+
+    // Cancel edit mode
+
+    function cancelEdit() {
+
+        editingPlanId = null;
+
+        improvementForm.reset();
+
+        document.getElementById("formTitle").textContent =
+            "Create My Improvement Plan";
+
+        document.getElementById("submitButton").textContent =
+            "Save Improvement Plan ♡";
+
+        document.getElementById("cancelButton").style.display =
+            "none";
+
+    }
+
+
+    // Delete plan
+
+    function deletePlan(id) {
+
+        const confirmDelete = confirm(
+            "Are you sure you want to delete this improvement plan?"
+        );
+
+        if (!confirmDelete) return;
+
+        let plans = getPlans();
+
+        plans = plans.filter(function(plan) {
+
+            return plan.id !== id;
+
+        });
+
+        storePlans(plans);
+
+        if (editingPlanId === id) {
+
+            cancelEdit();
+
+        }
+
+        displayPlans();
+
+    }
+
+
+    // Load saved plans when page opens
+
+    displayPlans();
+
+</script>
+
+</body>
+</html>

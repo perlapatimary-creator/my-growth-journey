@@ -1,0 +1,1263 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money & Freelancing | My Growth Journey</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* MONEY PAGE ONLY */
+
+        .page-header {
+            margin-bottom: 25px;
+        }
+
+        .page-header h1 {
+            color: #8D4E38;
+            font-size: 27px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .page-header p {
+            color: #a58c7c;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .summary {
+            margin-bottom: 25px;
+        }
+
+        .summary-card {
+            background: #fffdf9;
+            border: 1px solid #E8D4BF;
+            padding: 22px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(90, 50, 30, 0.05);
+            min-width: 0;
+        }
+
+        .summary-card h3 {
+            font-size: 13px;
+            color: #a58c7c;
+            margin-bottom: 10px;
+        }
+
+        .summary-card .number {
+            font-size: 25px;
+            font-weight: 600;
+            color: #8D4E38;
+            overflow-wrap: anywhere;
+        }
+
+        .income-number {
+            color: #66856A !important;
+        }
+
+        .expense-number {
+            color: #B85C50 !important;
+        }
+
+        .section {
+            background: #fffdf9;
+            border: 1px solid #E8D4BF;
+            padding: 25px;
+            border-radius: 17px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(90, 50, 30, 0.05);
+        }
+
+        .section h2 {
+            color: #8D4E38;
+            font-size: 19px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .main label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #684735;
+            margin-bottom: 8px;
+        }
+
+        .main input,
+        .main select,
+        .main textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #DDC8B5;
+            border-radius: 9px;
+            font-size: 13px;
+            outline: none;
+            background: #FFFCF8;
+            color: #5c3b2e;
+        }
+
+        .main input:focus,
+        .main select:focus,
+        .main textarea:focus {
+            border-color: #B9795B;
+        }
+
+        .main textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 9px;
+            padding: 11px 18px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #8D4E38;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #6F3828;
+        }
+
+        .btn-light {
+            background: #E8D4BF;
+            color: #8D4E38;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        /* SAVINGS GOAL */
+
+        .savings-box {
+            background: #FFFCF8;
+            border: 1px solid #E8D9CA;
+            border-radius: 14px;
+            padding: 22px;
+        }
+
+        .savings-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .savings-header h3 {
+            color: #8D4E38;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .savings-header p {
+            color: #8A776B;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .savings-amount {
+            color: #8D4E38;
+            font-size: 24px;
+            font-weight: 600;
+            overflow-wrap: anywhere;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            color: #806b5c;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: #EDE2D6;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: #66856A;
+            border-radius: 20px;
+            transition: width 0.3s;
+        }
+
+        .savings-footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+            color: #8A776B;
+            font-size: 12px;
+        }
+
+        /* TRANSACTION AND CLIENT LIST */
+
+        .transaction-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .transaction-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            padding: 16px;
+            border: 1px solid #E8D9CA;
+            border-radius: 12px;
+            background: #FFFCF8;
+            min-width: 0;
+        }
+
+        .transaction-info {
+            min-width: 0;
+            overflow-wrap: anywhere;
+        }
+
+        .transaction-info h3 {
+            color: #8D4E38;
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+
+        .transaction-info p {
+            color: #8A776B;
+            font-size: 12px;
+            line-height: 1.6;
+            overflow-wrap: anywhere;
+        }
+
+        .transaction-right {
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .transaction-amount {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            overflow-wrap: anywhere;
+        }
+
+        .income {
+            color: #66856A;
+        }
+
+        .expense {
+            color: #B85C50;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .btn-edit {
+            background: #E8D4BF;
+            color: #8D4E38;
+            padding: 7px 10px;
+        }
+
+        .btn-delete {
+            background: #F8E3DF;
+            color: #B85C50;
+            padding: 7px 10px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 30px 15px;
+            color: #8A776B;
+            line-height: 1.8;
+            font-size: 13px;
+        }
+
+        /* FREELANCING CLIENT STATUS */
+
+        .client-status {
+            display: inline-block;
+            padding: 5px 9px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            background: #E8D4BF;
+            color: #8D4E38;
+        }
+
+        .client-status.completed {
+            background: #E1EDE1;
+            color: #66856A;
+        }
+
+        .client-status.pending {
+            background: #F8E3DF;
+            color: #B85C50;
+        }
+
+        @media (max-width: 768px) {
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .section {
+                padding: 18px;
+            }
+
+            .transaction-card {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .transaction-right {
+                width: 100%;
+                text-align: left;
+            }
+
+            .card-actions {
+                justify-content: flex-start;
+            }
+
+            .savings-box {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">🌱</div>
+            <div>
+                <h2>My Growth Journey</h2>
+                <p>Personal Growth Dashboard</p>
+            </div>
+        </div>
+
+        <div class="profile">
+            <div class="profile-avatar">C</div>
+            <div>
+                <h3>My Journey</h3>
+                <p>Growing every day 🤎</p>
+            </div>
+        </div>
+
+        <p class="nav-heading">MAIN MENU</p>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">
+                <span>🏠</span> Dashboard
+            </a>
+
+            <a href="self-analysis.html" class="nav-link">
+                <span>🪞</span> Self Analysis
+            </a>
+
+            <a href="improvement.html" class="nav-link">
+                <span>🌷</span> Improvement
+            </a>
+
+            <a href="goals.html" class="nav-link">
+                <span>🎯</span> Monthly Goals
+            </a>
+
+            <a href="skills.html" class="nav-link">
+                <span>💡</span> Skills Development
+            </a>
+
+            <a href="money.html" class="nav-link active">
+                <span>💰</span> Money & Freelancing
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <p>"Small steps every day lead to big changes."</p>
+            <span>— My Growth Journey 🤎</span>
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <header class="page-header">
+            <h1>💰 Money & Freelancing</h1>
+            <p>
+                Manage your money wisely, track your income and expenses,
+                save for your dreams, and build your freelancing journey.
+            </p>
+        </header>
+
+        <!-- SUMMARY CARDS -->
+        <section class="summary">
+
+            <div class="summary-card">
+                <h3>Current Savings</h3>
+                <div class="number" id="currentBalance">₹0</div>
+            </div>
+
+            <div class="summary-card">
+                <h3>Total Income</h3>
+                <div class="number income-number" id="totalIncome">₹0</div>
+            </div>
+
+            <div class="summary-card">
+                <h3>Total Expenses</h3>
+                <div class="number expense-number" id="totalExpenses">₹0</div>
+            </div>
+
+        </section>
+
+        <!-- SAVINGS GOAL -->
+        <section class="section">
+
+            <h2>🎯 My Savings Goal</h2>
+
+            <div class="savings-box">
+
+                <div class="savings-header">
+                    <div>
+                        <h3>My Future Savings</h3>
+                        <p>Set a target and track your savings progress.</p>
+                    </div>
+
+                    <div class="savings-amount" id="savingsGoalAmount">
+                        ₹2,00,000
+                    </div>
+                </div>
+
+                <div class="progress-info">
+                    <span id="savingsProgressText">0% completed</span>
+                    <strong id="savingsPercentage">0%</strong>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="savingsProgressBar"></div>
+                </div>
+
+                <div class="savings-footer">
+                    <span id="savedAmountText">Saved: ₹0</span>
+                    <span id="remainingAmountText">Remaining: ₹2,00,000</span>
+                </div>
+
+                <br>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="savingsTarget">Savings Target (₹)</label>
+                        <input
+                            type="number"
+                            id="savingsTarget"
+                            min="1"
+                            value="200000"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="startingSavings">Starting Savings (₹)</label>
+                        <input
+                            type="number"
+                            id="startingSavings"
+                            min="0"
+                            value="0"
+                        >
+                    </div>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="saveGoalBtn"
+                    style="margin-top:15px;"
+                >
+                    Update Savings Goal
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- ADD TRANSACTION -->
+        <section class="section">
+
+            <h2 id="transactionFormTitle">➕ Add Income / Expense</h2>
+
+            <form id="transactionForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="transactionType">Transaction Type</label>
+                        <select id="transactionType" required>
+                            <option value="income">Income</option>
+                            <option value="expense">Expense</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="transactionCategory">Category</label>
+                        <select id="transactionCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="Salary">Salary</option>
+                            <option value="Freelancing">Freelancing</option>
+                            <option value="Scholarship">Scholarship</option>
+                            <option value="Savings">Savings</option>
+                            <option value="Travel">Travel</option>
+                            <option value="Food">Food</option>
+                            <option value="Education">Education</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Bills">Bills</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="transactionTitle">Description</label>
+                        <input
+                            type="text"
+                            id="transactionTitle"
+                            placeholder="Example: Monthly salary"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="transactionAmount">Amount (₹)</label>
+                        <input
+                            type="number"
+                            id="transactionAmount"
+                            min="0.01"
+                            step="0.01"
+                            placeholder="Enter amount"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="transactionDate">Date</label>
+                        <input type="date" id="transactionDate" required>
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="transactionNotes">Notes</label>
+                        <textarea
+                            id="transactionNotes"
+                            placeholder="Add optional notes..."
+                        ></textarea>
+                    </div>
+
+                </div>
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                        id="transactionSubmitBtn"
+                    >
+                        Add Transaction
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn btn-light"
+                        id="transactionCancelBtn"
+                        style="display:none;"
+                    >
+                        Cancel Edit
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+        <!-- TRANSACTION HISTORY -->
+        <section class="section">
+
+            <h2>📊 Transaction History</h2>
+
+            <div class="transaction-list" id="transactionList">
+                <div class="empty-state">
+                    No transactions added yet.<br>
+                    Add your first income or expense above.
+                </div>
+            </div>
+
+        </section>
+
+        <!-- FREELANCING CLIENT TRACKER -->
+        <section class="section">
+
+            <h2 id="clientFormTitle">💻 Freelancing Client Tracker</h2>
+
+            <form id="clientForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="clientName">Client / Business Name</label>
+                        <input
+                            type="text"
+                            id="clientName"
+                            placeholder="Example: Boutique name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clientService">Service</label>
+                        <select id="clientService" required>
+                            <option value="">Select Service</option>
+                            <option value="Website Design">Website Design</option>
+                            <option value="Canva Design">Canva Design</option>
+                            <option value="Website + Canva">Website + Canva</option>
+                            <option value="Content Writing">Content Writing</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clientAmount">Project Amount (₹)</label>
+                        <input
+                            type="number"
+                            id="clientAmount"
+                            min="0"
+                            step="0.01"
+                            placeholder="Enter project amount"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clientStatus">Project Status</label>
+                        <select id="clientStatus" required>
+                            <option value="Lead">New Lead</option>
+                            <option value="Contacted">Contacted</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Payment Pending">Payment Pending</option>
+                            <option value="Paid">Paid</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="clientNotes">Client Notes</label>
+                        <textarea
+                            id="clientNotes"
+                            placeholder="Client requirements, contact details, follow-up date..."
+                        ></textarea>
+                    </div>
+
+                </div>
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                        id="clientSubmitBtn"
+                    >
+                        Add Client
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn btn-light"
+                        id="clientCancelBtn"
+                        style="display:none;"
+                    >
+                        Cancel Edit
+                    </button>
+
+                </div>
+
+            </form>
+
+            <br>
+
+            <div class="transaction-list" id="clientList">
+                <div class="empty-state">
+                    No freelancing clients added yet.<br>
+                    Your first client can be added here!
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+</div>
+
+<script>
+    // ---------------------------------------
+    // STORAGE
+    // ---------------------------------------
+
+    let transactions =
+        JSON.parse(localStorage.getItem("moneyTransactions")) || [];
+
+    let clients =
+        JSON.parse(localStorage.getItem("freelanceClients")) || [];
+
+    let savingsGoal =
+        JSON.parse(localStorage.getItem("moneySavingsGoal")) || {
+            target: 200000,
+            starting: 0
+        };
+
+    let editingTransactionId = null;
+    let editingClientId = null;
+
+    // ---------------------------------------
+    // ELEMENTS
+    // ---------------------------------------
+
+    const transactionForm = document.getElementById("transactionForm");
+    const transactionType = document.getElementById("transactionType");
+    const transactionCategory = document.getElementById("transactionCategory");
+    const transactionTitle = document.getElementById("transactionTitle");
+    const transactionAmount = document.getElementById("transactionAmount");
+    const transactionDate = document.getElementById("transactionDate");
+    const transactionNotes = document.getElementById("transactionNotes");
+
+    const transactionList = document.getElementById("transactionList");
+    const transactionSubmitBtn = document.getElementById("transactionSubmitBtn");
+    const transactionCancelBtn = document.getElementById("transactionCancelBtn");
+
+    const clientForm = document.getElementById("clientForm");
+    const clientName = document.getElementById("clientName");
+    const clientService = document.getElementById("clientService");
+    const clientAmount = document.getElementById("clientAmount");
+    const clientStatus = document.getElementById("clientStatus");
+    const clientNotes = document.getElementById("clientNotes");
+
+    const clientList = document.getElementById("clientList");
+    const clientSubmitBtn = document.getElementById("clientSubmitBtn");
+    const clientCancelBtn = document.getElementById("clientCancelBtn");
+
+    // ---------------------------------------
+    // HELPER FUNCTIONS
+    // ---------------------------------------
+
+    function formatMoney(amount) {
+        return "₹" + Number(amount).toLocaleString("en-IN", {
+            maximumFractionDigits: 2
+        });
+    }
+
+    function escapeHTML(value) {
+        return String(value).replace(/[&<>"']/g, function (character) {
+            const entities = {
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#039;"
+            };
+
+            return entities[character];
+        });
+    }
+
+    function saveTransactions() {
+        localStorage.setItem(
+            "moneyTransactions",
+            JSON.stringify(transactions)
+        );
+    }
+
+    function saveClients() {
+        localStorage.setItem(
+            "freelanceClients",
+            JSON.stringify(clients)
+        );
+    }
+
+    function saveSavingsGoal() {
+        localStorage.setItem(
+            "moneySavingsGoal",
+            JSON.stringify(savingsGoal)
+        );
+    }
+
+    // ---------------------------------------
+    // SAVINGS GOAL
+    // ---------------------------------------
+
+    function updateSavingsDisplay() {
+
+        const totalIncome = transactions
+            .filter(item => item.type === "income")
+            .reduce((sum, item) => sum + Number(item.amount), 0);
+
+        const totalExpenses = transactions
+            .filter(item => item.type === "expense")
+            .reduce((sum, item) => sum + Number(item.amount), 0);
+
+        const currentBalance =
+            Number(savingsGoal.starting) +
+            totalIncome -
+            totalExpenses;
+
+        const target = Number(savingsGoal.target);
+
+        const progress = target > 0
+            ? Math.min(Math.max((currentBalance / target) * 100, 0), 100)
+            : 0;
+
+        const remaining = Math.max(target - currentBalance, 0);
+
+        document.getElementById("currentBalance").textContent =
+            formatMoney(currentBalance);
+
+        document.getElementById("totalIncome").textContent =
+            formatMoney(totalIncome);
+
+        document.getElementById("totalExpenses").textContent =
+            formatMoney(totalExpenses);
+
+        document.getElementById("savingsGoalAmount").textContent =
+            formatMoney(target);
+
+        document.getElementById("savingsProgressText").textContent =
+            Math.round(progress) + "% completed";
+
+        document.getElementById("savingsPercentage").textContent =
+            Math.round(progress) + "%";
+
+        document.getElementById("savingsProgressBar").style.width =
+            progress + "%";
+
+        document.getElementById("savedAmountText").textContent =
+            "Saved: " + formatMoney(currentBalance);
+
+        document.getElementById("remainingAmountText").textContent =
+            "Remaining: " + formatMoney(remaining);
+    }
+
+    // Load saved savings goal
+    document.getElementById("savingsTarget").value = savingsGoal.target;
+    document.getElementById("startingSavings").value = savingsGoal.starting;
+
+    document.getElementById("saveGoalBtn").addEventListener("click", function () {
+
+        const target = Number(
+            document.getElementById("savingsTarget").value
+        );
+
+        const starting = Number(
+            document.getElementById("startingSavings").value
+        );
+
+        if (!Number.isFinite(target) || !Number.isFinite(starting) ||
+            target <= 0 || starting < 0) {
+            alert("Please enter valid savings amounts.");
+            return;
+        }
+
+        savingsGoal = {
+            target: target,
+            starting: starting
+        };
+
+        saveSavingsGoal();
+        updateSavingsDisplay();
+
+        alert("Savings goal updated!");
+    });
+
+    // ---------------------------------------
+    // TRANSACTIONS
+    // ---------------------------------------
+
+    function getTodayDate() {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, "0");
+        const day = String(today.getDate()).padStart(2, "0");
+
+        return `${year}-${month}-${day}`;
+    }
+
+    transactionDate.value = getTodayDate();
+
+    transactionForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        const amount = Number(transactionAmount.value);
+
+        if (!Number.isFinite(amount) || amount <= 0) {
+            alert("Please enter an amount greater than zero.");
+            return;
+        }
+
+        const transactionData = {
+            id: editingTransactionId || Date.now(),
+            type: transactionType.value,
+            category: transactionCategory.value,
+            title: transactionTitle.value.trim(),
+            amount: amount,
+            date: transactionDate.value,
+            notes: transactionNotes.value.trim()
+        };
+
+        if (editingTransactionId) {
+            transactions = transactions.map(item =>
+                item.id === editingTransactionId
+                    ? transactionData
+                    : item
+            );
+        } else {
+            transactions.push(transactionData);
+        }
+
+        saveTransactions();
+        displayTransactions();
+        resetTransactionForm();
+    });
+
+    function displayTransactions() {
+
+        transactionList.innerHTML = "";
+
+        if (transactions.length === 0) {
+            transactionList.innerHTML = `
+                <div class="empty-state">
+                    No transactions added yet.<br>
+                    Add your first income or expense above.
+                </div>
+            `;
+
+            updateSavingsDisplay();
+            return;
+        }
+
+        const sortedTransactions = [...transactions].sort((a, b) =>
+            new Date(b.date) - new Date(a.date)
+        );
+
+        sortedTransactions.forEach(item => {
+
+            const card = document.createElement("div");
+            card.className = "transaction-card";
+
+            const safeTitle = escapeHTML(item.title);
+            const safeCategory = escapeHTML(item.category);
+            const safeDate = escapeHTML(item.date);
+            const safeNotes = escapeHTML(item.notes || "");
+
+            const sign = item.type === "income" ? "+" : "-";
+            const amountClass = item.type === "income"
+                ? "income"
+                : "expense";
+
+            card.innerHTML = `
+                <div class="transaction-info">
+                    <h3>${safeTitle}</h3>
+                    <p>${safeCategory} • ${safeDate}</p>
+                    ${safeNotes ? `<p>${safeNotes}</p>` : ""}
+                </div>
+
+                <div class="transaction-right">
+                    <div class="transaction-amount ${amountClass}">
+                        ${sign}${formatMoney(item.amount)}
+                    </div>
+
+                    <div class="card-actions">
+                        <button
+                            class="btn btn-edit"
+                            onclick="editTransaction(${item.id})"
+                        >
+                            Edit
+                        </button>
+
+                        <button
+                            class="btn btn-delete"
+                            onclick="deleteTransaction(${item.id})"
+                        >
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            transactionList.appendChild(card);
+        });
+
+        updateSavingsDisplay();
+    }
+
+    function editTransaction(id) {
+
+        const item = transactions.find(transaction =>
+            transaction.id === id
+        );
+
+        if (!item) return;
+
+        editingTransactionId = id;
+
+        transactionType.value = item.type;
+        transactionCategory.value = item.category;
+        transactionTitle.value = item.title;
+        transactionAmount.value = item.amount;
+        transactionDate.value = item.date;
+        transactionNotes.value = item.notes || "";
+
+        document.getElementById("transactionFormTitle").textContent =
+            "✏️ Edit Transaction";
+
+        transactionSubmitBtn.textContent = "Update Transaction";
+        transactionCancelBtn.style.display = "inline-block";
+
+        transactionForm.scrollIntoView({ behavior: "smooth" });
+    }
+
+    function deleteTransaction(id) {
+
+        if (!confirm("Are you sure you want to delete this transaction?")) {
+            return;
+        }
+
+        transactions = transactions.filter(item => item.id !== id);
+
+        saveTransactions();
+        displayTransactions();
+
+        if (editingTransactionId === id) {
+            resetTransactionForm();
+        }
+    }
+
+    function resetTransactionForm() {
+
+        transactionForm.reset();
+        editingTransactionId = null;
+        transactionDate.value = getTodayDate();
+
+        document.getElementById("transactionFormTitle").textContent =
+            "➕ Add Income / Expense";
+
+        transactionSubmitBtn.textContent = "Add Transaction";
+        transactionCancelBtn.style.display = "none";
+    }
+
+    transactionCancelBtn.addEventListener("click", resetTransactionForm);
+
+    // ---------------------------------------
+    // FREELANCING CLIENTS
+    // ---------------------------------------
+
+    clientForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        const amount = Number(clientAmount.value);
+
+        if (!Number.isFinite(amount) || amount < 0) {
+            alert("Please enter a valid project amount.");
+            return;
+        }
+
+        const clientData = {
+            id: editingClientId || Date.now(),
+            name: clientName.value.trim(),
+            service: clientService.value,
+            amount: amount,
+            status: clientStatus.value,
+            notes: clientNotes.value.trim()
+        };
+
+        if (editingClientId) {
+            clients = clients.map(client =>
+                client.id === editingClientId
+                    ? clientData
+                    : client
+            );
+        } else {
+            clients.push(clientData);
+        }
+
+        saveClients();
+        displayClients();
+        resetClientForm();
+    });
+
+    function displayClients() {
+
+        clientList.innerHTML = "";
+
+        if (clients.length === 0) {
+            clientList.innerHTML = `
+                <div class="empty-state">
+                    No freelancing clients added yet.<br>
+                    Your first client can be added here!
+                </div>
+            `;
+
+            return;
+        }
+
+        clients.forEach(client => {
+
+            const card = document.createElement("div");
+            card.className = "transaction-card";
+
+            const safeName = escapeHTML(client.name);
+            const safeService = escapeHTML(client.service);
+            const safeStatus = escapeHTML(client.status);
+            const safeNotes = escapeHTML(client.notes || "");
+
+            const statusClass =
+                client.status === "Completed" ||
+                client.status === "Paid"
+                    ? "completed"
+                    : client.status === "Payment Pending"
+                        ? "pending"
+                        : "";
+
+            card.innerHTML = `
+                <div class="transaction-info">
+                    <h3>${safeName}</h3>
+                    <p>${safeService}</p>
+                    ${safeNotes ? `<p>${safeNotes}</p>` : ""}
+                    <br>
+                    <span class="client-status ${statusClass}">
+                        ${safeStatus}
+                    </span>
+                </div>
+
+                <div class="transaction-right">
+                    <div class="transaction-amount">
+                        ${formatMoney(client.amount)}
+                    </div>
+
+                    <div class="card-actions">
+                        <button
+                            class="btn btn-edit"
+                            onclick="editClient(${client.id})"
+                        >
+                            Edit
+                        </button>
+
+                        <button
+                            class="btn btn-delete"
+                            onclick="deleteClient(${client.id})"
+                        >
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            clientList.appendChild(card);
+        });
+    }
+
+    function editClient(id) {
+
+        const client = clients.find(item => item.id === id);
+        if (!client) return;
+
+        editingClientId = id;
+
+        clientName.value = client.name;
+        clientService.value = client.service;
+        clientAmount.value = client.amount;
+        clientStatus.value = client.status;
+        clientNotes.value = client.notes || "";
+
+        document.getElementById("clientFormTitle").textContent =
+            "✏️ Edit Freelancing Client";
+
+        clientSubmitBtn.textContent = "Update Client";
+        clientCancelBtn.style.display = "inline-block";
+
+        clientForm.scrollIntoView({ behavior: "smooth" });
+    }
+
+    function deleteClient(id) {
+
+        if (!confirm("Are you sure you want to delete this client?")) {
+            return;
+        }
+
+        clients = clients.filter(client => client.id !== id);
+
+        saveClients();
+        displayClients();
+
+        if (editingClientId === id) {
+            resetClientForm();
+        }
+    }
+
+    function resetClientForm() {
+
+        clientForm.reset();
+        editingClientId = null;
+
+        document.getElementById("clientFormTitle").textContent =
+            "💻 Freelancing Client Tracker";
+
+        clientSubmitBtn.textContent = "Add Client";
+        clientCancelBtn.style.display = "none";
+    }
+
+    clientCancelBtn.addEventListener("click", resetClientForm);
+
+    // ---------------------------------------
+    // INITIAL DISPLAY
+    // ---------------------------------------
+
+    displayTransactions();
+    displayClients();
+    updateSavingsDisplay();
+
+</script>
+
+</body>
+</html>

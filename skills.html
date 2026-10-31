@@ -1,0 +1,687 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills Development | My Growth Journey</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* SKILLS PAGE ONLY */
+
+        .page-header {
+            margin-bottom: 25px;
+        }
+
+        .page-header h1 {
+            color: #8D4E38;
+            font-size: 27px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .page-header p {
+            color: #a58c7c;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .summary {
+            margin-bottom: 25px;
+        }
+
+        .summary-card {
+            background: #fffdf9;
+            border: 1px solid #E8D4BF;
+            padding: 22px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(90, 50, 30, 0.05);
+        }
+
+        .summary-card h3 {
+            font-size: 13px;
+            color: #a58c7c;
+            margin-bottom: 10px;
+        }
+
+        .summary-card .number {
+            font-size: 27px;
+            font-weight: 600;
+            color: #8D4E38;
+        }
+
+        .section {
+            background: #fffdf9;
+            border: 1px solid #E8D4BF;
+            padding: 25px;
+            border-radius: 17px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(90, 50, 30, 0.05);
+        }
+
+        .section h2 {
+            color: #8D4E38;
+            font-size: 19px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .main label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #684735;
+            margin-bottom: 8px;
+        }
+
+        .main input,
+        .main select,
+        .main textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #DDC8B5;
+            border-radius: 9px;
+            font-size: 13px;
+            outline: none;
+            background: #FFFCF8;
+            color: #5c3b2e;
+        }
+
+        .main input:focus,
+        .main select:focus,
+        .main textarea:focus {
+            border-color: #B9795B;
+        }
+
+        .main textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .progress-input {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .main .progress-input input {
+            flex: 1;
+            padding: 0;
+            accent-color: #8D4E38;
+        }
+
+        .progress-value {
+            font-weight: 600;
+            color: #8D4E38;
+            min-width: 42px;
+            font-size: 13px;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 9px;
+            padding: 11px 18px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #8D4E38;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #6F3828;
+        }
+
+        .btn-light {
+            background: #E8D4BF;
+            color: #8D4E38;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .skills-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .skill-card {
+            border: 1px solid #E8D9CA;
+            border-radius: 14px;
+            padding: 20px;
+            background: #FFFCF8;
+            min-width: 0;
+        }
+
+        .skill-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .skill-top h3 {
+            color: #8D4E38;
+            font-size: 17px;
+            margin-bottom: 7px;
+            overflow-wrap: anywhere;
+        }
+
+        .category {
+            display: inline-block;
+            background: #E8D4BF;
+            color: #8D4E38;
+            font-size: 11px;
+            padding: 5px 9px;
+            border-radius: 20px;
+        }
+
+        .skill-description {
+            color: #8A776B;
+            font-size: 13px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            font-size: 12px;
+            margin-bottom: 8px;
+            color: #806b5c;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 9px;
+            background: #EDE2D6;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #66856A;
+            border-radius: 20px;
+            transition: width 0.3s;
+        }
+
+        .skill-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .target-date {
+            font-size: 11px;
+            color: #8A776B;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-edit {
+            background: #E8D4BF;
+            color: #8D4E38;
+            padding: 7px 11px;
+        }
+
+        .btn-delete {
+            background: #F8E3DF;
+            color: #B85C50;
+            padding: 7px 11px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 35px 15px;
+            color: #8A776B;
+            line-height: 1.8;
+            font-size: 13px;
+            grid-column: 1 / -1;
+        }
+
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .section {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">🌱</div>
+            <div>
+                <h2>My Growth Journey</h2>
+                <p>Personal Growth Dashboard</p>
+            </div>
+        </div>
+
+        <div class="profile">
+            <div class="profile-avatar">C</div>
+            <div>
+                <h3>My Journey</h3>
+                <p>Growing every day 🤎</p>
+            </div>
+        </div>
+
+        <p class="nav-heading">MAIN MENU</p>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">
+                <span>🏠</span> Dashboard
+            </a>
+
+            <a href="self-analysis.html" class="nav-link">
+                <span>🪞</span> Self Analysis
+            </a>
+
+            <a href="improvement.html" class="nav-link">
+                <span>🌷</span> Improvement
+            </a>
+
+            <a href="goals.html" class="nav-link">
+                <span>🎯</span> Monthly Goals
+            </a>
+
+            <a href="skills.html" class="nav-link active">
+                <span>💡</span> Skills Development
+            </a>
+
+            <a href="money.html" class="nav-link">
+                <span>💰</span> Money & Freelancing
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <p>"Small steps every day lead to big changes."</p>
+            <span>— My Growth Journey 🤎</span>
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <header class="page-header">
+            <h1>💡 Skills Development</h1>
+            <p>
+                Every skill you learn is an investment in your future.
+                Track your learning, practice consistently, and celebrate your progress.
+            </p>
+        </header>
+
+        <!-- SUMMARY -->
+        <section class="summary">
+
+            <div class="summary-card">
+                <h3>Total Skills</h3>
+                <div class="number" id="totalSkills">0</div>
+            </div>
+
+            <div class="summary-card">
+                <h3>Skills In Progress</h3>
+                <div class="number" id="inProgressSkills">0</div>
+            </div>
+
+            <div class="summary-card">
+                <h3>Skills Completed</h3>
+                <div class="number" id="completedSkills">0</div>
+            </div>
+
+        </section>
+
+        <!-- ADD SKILL FORM -->
+        <section class="section">
+
+            <h2 id="formTitle">➕ Add a New Skill</h2>
+
+            <form id="skillForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="skillName">Skill Name</label>
+                        <input
+                            type="text"
+                            id="skillName"
+                            placeholder="Example: HTML, Python, Canva"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="skillCategory">Category</label>
+                        <select id="skillCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="Technical">Technical</option>
+                            <option value="Creative">Creative</option>
+                            <option value="Communication">Communication</option>
+                            <option value="Business">Business</option>
+                            <option value="Personal">Personal Development</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="targetDate">Target Date</label>
+                        <input type="date" id="targetDate">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="skillProgress">Current Progress</label>
+
+                        <div class="progress-input">
+                            <input
+                                type="range"
+                                id="skillProgress"
+                                min="0"
+                                max="100"
+                                value="0"
+                            >
+                            <span class="progress-value" id="progressValue">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="skillDescription">
+                            Learning Plan / Notes
+                        </label>
+
+                        <textarea
+                            id="skillDescription"
+                            placeholder="What do you want to learn? What is your practice plan?"
+                        ></textarea>
+                    </div>
+
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="submitBtn">
+                        Add Skill
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn btn-light"
+                        id="cancelBtn"
+                        style="display:none;"
+                    >
+                        Cancel Edit
+                    </button>
+                </div>
+
+            </form>
+
+        </section>
+
+        <!-- SKILL LIST -->
+        <section class="section">
+
+            <h2>📚 My Skills</h2>
+
+            <div class="skills-grid" id="skillsList">
+                <div class="empty-state">
+                    No skills added yet.<br>
+                    Start by adding your first skill above!
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+</div>
+
+<script>
+    const skillForm = document.getElementById("skillForm");
+    const skillName = document.getElementById("skillName");
+    const skillCategory = document.getElementById("skillCategory");
+    const targetDate = document.getElementById("targetDate");
+    const skillProgress = document.getElementById("skillProgress");
+    const progressValue = document.getElementById("progressValue");
+    const skillDescription = document.getElementById("skillDescription");
+
+    const skillsList = document.getElementById("skillsList");
+    const submitBtn = document.getElementById("submitBtn");
+    const cancelBtn = document.getElementById("cancelBtn");
+    const formTitle = document.getElementById("formTitle");
+
+    // Existing saved skills are retained
+    let skills = JSON.parse(localStorage.getItem("mySkills")) || [];
+    let editingId = null;
+
+    skillProgress.addEventListener("input", function () {
+        progressValue.textContent = skillProgress.value + "%";
+    });
+
+    function saveSkills() {
+        localStorage.setItem("mySkills", JSON.stringify(skills));
+    }
+
+    function updateSummary() {
+        document.getElementById("totalSkills").textContent = skills.length;
+
+        const inProgress = skills.filter(skill =>
+            Number(skill.progress) > 0 && Number(skill.progress) < 100
+        ).length;
+
+        const completed = skills.filter(skill =>
+            Number(skill.progress) === 100
+        ).length;
+
+        document.getElementById("inProgressSkills").textContent = inProgress;
+        document.getElementById("completedSkills").textContent = completed;
+    }
+
+    function escapeHTML(value) {
+        return String(value).replace(/[&<>"']/g, function (character) {
+            const entities = {
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#039;"
+            };
+
+            return entities[character];
+        });
+    }
+
+    function displaySkills() {
+        skillsList.innerHTML = "";
+
+        if (skills.length === 0) {
+            skillsList.innerHTML = `
+                <div class="empty-state">
+                    No skills added yet.<br>
+                    Start by adding your first skill above!
+                </div>
+            `;
+
+            updateSummary();
+            return;
+        }
+
+        skills.forEach(skill => {
+            const card = document.createElement("div");
+            card.className = "skill-card";
+
+            const safeName = escapeHTML(skill.name);
+            const safeCategory = escapeHTML(skill.category);
+            const safeDescription = escapeHTML(skill.description || "");
+            const safeDate = escapeHTML(skill.date || "Not set");
+            const progress = Math.min(100, Math.max(0, Number(skill.progress) || 0));
+
+            card.innerHTML = `
+                <div class="skill-top">
+                    <div>
+                        <h3>${safeName}</h3>
+                        <span class="category">${safeCategory}</span>
+                    </div>
+                </div>
+
+                <p class="skill-description">
+                    ${safeDescription || "No learning notes added yet."}
+                </p>
+
+                <div class="progress-info">
+                    <span>Learning Progress</span>
+                    <strong>${progress}%</strong>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:${progress}%"></div>
+                </div>
+
+                <div class="skill-footer">
+                    <span class="target-date">🎯 Target: ${safeDate}</span>
+
+                    <div class="card-actions">
+                        <button class="btn btn-edit" onclick="editSkill(${skill.id})">
+                            Edit
+                        </button>
+
+                        <button class="btn btn-delete" onclick="deleteSkill(${skill.id})">
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            skillsList.appendChild(card);
+        });
+
+        updateSummary();
+    }
+
+    skillForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const name = skillName.value.trim();
+
+        if (!name) {
+            alert("Please enter a skill name.");
+            return;
+        }
+
+        const skillData = {
+            id: editingId || Date.now(),
+            name: name,
+            category: skillCategory.value,
+            date: targetDate.value,
+            progress: Number(skillProgress.value),
+            description: skillDescription.value.trim()
+        };
+
+        if (editingId) {
+            skills = skills.map(skill =>
+                skill.id === editingId ? skillData : skill
+            );
+        } else {
+            skills.push(skillData);
+        }
+
+        saveSkills();
+        displaySkills();
+        resetForm();
+    });
+
+    function editSkill(id) {
+        const skill = skills.find(item => item.id === id);
+        if (!skill) return;
+
+        editingId = id;
+
+        skillName.value = skill.name;
+        skillCategory.value = skill.category;
+        targetDate.value = skill.date || "";
+        skillProgress.value = skill.progress;
+        progressValue.textContent = skill.progress + "%";
+        skillDescription.value = skill.description || "";
+
+        formTitle.textContent = "✏️ Edit Skill";
+        submitBtn.textContent = "Update Skill";
+        cancelBtn.style.display = "inline-block";
+
+        skillForm.scrollIntoView({ behavior: "smooth" });
+    }
+
+    function deleteSkill(id) {
+        const confirmDelete = confirm(
+            "Are you sure you want to delete this skill?"
+        );
+
+        if (!confirmDelete) return;
+
+        skills = skills.filter(skill => skill.id !== id);
+
+        saveSkills();
+        displaySkills();
+
+        if (editingId === id) {
+            resetForm();
+        }
+    }
+
+    function resetForm() {
+        skillForm.reset();
+
+        editingId = null;
+        skillProgress.value = 0;
+        progressValue.textContent = "0%";
+
+        formTitle.textContent = "➕ Add a New Skill";
+        submitBtn.textContent = "Add Skill";
+        cancelBtn.style.display = "none";
+    }
+
+    cancelBtn.addEventListener("click", resetForm);
+
+    // Initial display
+    displaySkills();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Self Analysis | My Growth Journey</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* SELF ANALYSIS PAGE */
+
+        .analysis-header {
+            margin-bottom: 30px;
+        }
+
+        .analysis-header h1 {
+            color: #8D4E38;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .analysis-header p {
+            color: #8b7768;
+        }
+
+        .reflection-banner {
+            background: linear-gradient(135deg, #8D4E38, #B9795B);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+
+        .reflection-banner h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .reflection-banner p {
+            line-height: 1.7;
+            max-width: 600px;
+        }
+
+        .analysis-date {
+            margin-top: 20px;
+        }
+
+        .analysis-date label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .analysis-date input {
+            padding: 12px;
+            border: 1px solid #E8D4BF;
+            border-radius: 10px;
+            background: #F8F1E7;
+            color: #5c3b2e;
+            font-family: inherit;
+        }
+
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+            margin-bottom: 25px;
+        }
+
+        .analysis-card {
+            background: #fffdf9;
+            padding: 25px;
+            border: 1px solid #E8D4BF;
+            border-radius: 18px;
+        }
+
+        .analysis-card h3 {
+            color: #8D4E38;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .analysis-card p {
+            color: #8b7768;
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .analysis-card textarea {
+            width: 100%;
+            min-height: 130px;
+            padding: 14px;
+            border: 1px solid #E8D4BF;
+            border-radius: 12px;
+            background: #F8F1E7;
+            color: #5c3b2e;
+            font-family: inherit;
+            font-size: 14px;
+            resize: vertical;
+            outline: none;
+        }
+
+        .analysis-card textarea:focus {
+            border-color: #8D4E38;
+        }
+
+        .reflection-section {
+            background: #fffdf9;
+            padding: 25px;
+            border: 1px solid #E8D4BF;
+            border-radius: 18px;
+            margin-bottom: 25px;
+        }
+
+        .reflection-section h3 {
+            color: #8D4E38;
+            margin-bottom: 10px;
+        }
+
+        .reflection-section textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 14px;
+            border: 1px solid #E8D4BF;
+            border-radius: 12px;
+            background: #F8F1E7;
+            font-family: inherit;
+            resize: vertical;
+            outline: none;
+        }
+
+        .save-reflection {
+            background: #8D4E38;
+            color: white;
+            border: none;
+            padding: 13px 25px;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .save-reflection:hover {
+            background: #6e3928;
+            transform: translateY(-2px);
+        }
+
+        .saved-section {
+            margin-top: 35px;
+        }
+
+        .saved-section h2 {
+            color: #8D4E38;
+            margin-bottom: 20px;
+        }
+
+        .saved-entry {
+            background: #fffdf9;
+            border: 1px solid #E8D4BF;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .saved-entry h3 {
+            color: #8D4E38;
+            margin-bottom: 10px;
+        }
+
+        .saved-entry p {
+            color: #6e5a4b;
+            line-height: 1.7;
+            white-space: pre-wrap;
+            margin-bottom: 10px;
+        }
+
+        .delete-entry {
+            background: #f3e2d8;
+            color: #8D4E38;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .empty-message {
+            color: #8b7768;
+            background: #fffdf9;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .analysis-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .analysis-header h1 {
+                font-size: 24px;
+            }
+
+            .reflection-banner {
+                padding: 22px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">✦</div>
+
+            <div>
+                <h2>My Journey</h2>
+                <p>Personal Growth</p>
+            </div>
+        </div>
+
+        <div class="profile">
+
+            <div class="profile-avatar">M</div>
+
+            <div>
+                <h3>My Space</h3>
+                <p>Becoming Better</p>
+            </div>
+
+        </div>
+
+        <nav class="navigation">
+
+            <p class="nav-heading">MENU</p>
+
+            <a href="index.html" class="nav-link">
+                <span>▦</span> Dashboard
+            </a>
+
+            <a href="self-analysis.html" class="nav-link active">
+                <span>♡</span> Positives & Negatives
+            </a>
+
+            <a href="improvement.html" class="nav-link">
+                <span>↗</span> What Should I Change?
+            </a>
+
+            <a href="goals.html" class="nav-link">
+                <span>◎</span> Monthly Goals
+            </a>
+
+            <a href="skills.html" class="nav-link">
+                <span>✎</span> Skills Development
+            </a>
+
+            <a href="money.html" class="nav-link">
+                <span>₹</span> Money & Freelancing
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <p>
+                “Small steps every day
+                lead to big changes.”
+            </p>
+
+            <span>♡ Keep Growing</span>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <!-- HEADER -->
+
+        <header class="top-header">
+
+            <div>
+                <p class="date-label">SELF REFLECTION</p>
+
+                <h1>Understanding Myself 🤎</h1>
+
+                <p class="header-subtitle">
+                    Be honest with yourself. Growth begins with awareness.
+                </p>
+            </div>
+
+            <div class="header-actions">
+
+                <a href="index.html" class="welcome-button">
+                    ← Dashboard
+                </a>
+
+                <div class="header-avatar">M</div>
+
+            </div>
+
+        </header>
+
+
+        <!-- PAGE INTRODUCTION -->
+
+        <section class="analysis-header">
+
+            <h1>Positives & Negatives</h1>
+
+            <p>
+                Take a moment to understand your day.
+                Celebrate your good habits and learn from your mistakes.
+            </p>
+
+        </section>
+
+
+        <!-- REFLECTION BANNER -->
+
+        <section class="reflection-banner">
+
+            <h2>Dear Me, Let's Reflect ✨</h2>
+
+            <p>
+                You are not your mistakes.
+                You are the person who learns from them.
+                Be kind to yourself while being honest about your growth.
+            </p>
+
+            <div class="analysis-date">
+
+                <label for="reflectionDate">
+                    Select Reflection Date
+                </label>
+
+                <input type="date" id="reflectionDate">
+
+            </div>
+
+        </section>
+
+
+        <!-- POSITIVES AND NEGATIVES -->
+
+        <section class="analysis-grid">
+
+            <!-- POSITIVES -->
+
+            <div class="analysis-card">
+
+                <h3>♡ My Positives</h3>
+
+                <p>
+                    What did I do well today?
+                    What good habits did I follow?
+                </p>
+
+                <textarea
+                    id="positives"
+                    placeholder="Today I did well because...&#10;&#10;I am proud of myself for...&#10;&#10;One good habit I followed..."
+                ></textarea>
+
+            </div>
+
+
+            <!-- NEGATIVES -->
+
+            <div class="analysis-card">
+
+                <h3>🌧 My Negatives</h3>
+
+                <p>
+                    What mistakes did I make?
+                    Which habits affected me negatively?
+                </p>
+
+                <textarea
+                    id="negatives"
+                    placeholder="Today I struggled with...&#10;&#10;One mistake I made...&#10;&#10;A habit I need to improve..."
+                ></textarea>
+
+            </div>
+
+
+            <!-- WHAT WENT WELL -->
+
+            <div class="analysis-card">
+
+                <h3>✨ What Went Well?</h3>
+
+                <p>
+                    What made today a good day?
+                </p>
+
+                <textarea
+                    id="wentWell"
+                    placeholder="Something good that happened today...&#10;&#10;A moment that made me happy..."
+                ></textarea>
+
+            </div>
+
+
+            <!-- WHAT WENT WRONG -->
+
+            <div class="analysis-card">
+
+                <h3>🪞 What Went Wrong?</h3>
+
+                <p>
+                    What could I have handled better?
+                </p>
+
+                <textarea
+                    id="wentWrong"
+                    placeholder="I could have handled this better...&#10;&#10;Next time I will..."
+                ></textarea>
+
+            </div>
+
+        </section>
+
+
+        <!-- DAILY REFLECTION -->
+
+        <section class="reflection-section">
+
+            <h3>My Daily Reflection 📝</h3>
+
+            <p>
+                Write anything you want to remember about today.
+            </p>
+
+            <br>
+
+            <textarea
+                id="dailyReflection"
+                placeholder="Dear me, today I learned that..."
+            ></textarea>
+
+            <br><br>
+
+            <button
+                type="button"
+                class="save-reflection"
+                onclick="saveReflection()"
+            >
+                Save My Reflection ♡
+            </button>
+
+            <p id="saveMessage"></p>
+
+        </section>
+
+
+        <!-- SAVED REFLECTIONS -->
+
+        <section class="saved-section">
+
+            <h2>My Previous Reflections</h2>
+
+            <div id="savedReflections">
+
+                <p class="empty-message">
+                    Your saved reflections will appear here.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+
+            <p>Made with ♡ for my future self.</p>
+
+            <span>My Growth Journey © 2026</span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+    // Set today's date automatically
+
+    const dateInput = document.getElementById("reflectionDate");
+
+    const today = new Date();
+
+    const localDate =
+        today.getFullYear() + "-" +
+        String(today.getMonth() + 1).padStart(2, "0") + "-" +
+        String(today.getDate()).padStart(2, "0");
+
+    dateInput.value = localDate;
+
+
+    // Load saved reflections
+
+    function getReflections() {
+
+        return JSON.parse(
+            localStorage.getItem("myReflections") || "[]"
+        );
+
+    }
+
+
+    // Save reflection
+
+    function saveReflection() {
+
+        const date = dateInput.value;
+
+        const positives =
+            document.getElementById("positives").value.trim();
+
+        const negatives =
+            document.getElementById("negatives").value.trim();
+
+        const wentWell =
+            document.getElementById("wentWell").value.trim();
+
+        const wentWrong =
+            document.getElementById("wentWrong").value.trim();
+
+        const dailyReflection =
+            document.getElementById("dailyReflection").value.trim();
+
+
+        if (!date) {
+
+            alert("Please select a date.");
+
+            return;
+
+        }
+
+
+        if (
+            !positives &&
+            !negatives &&
+            !wentWell &&
+            !wentWrong &&
+            !dailyReflection
+        ) {
+
+            alert("Please write something before saving.");
+
+            return;
+
+        }
+
+
+        let reflections = getReflections();
+
+
+        // Update existing date or create a new entry
+
+        const existingIndex = reflections.findIndex(
+            entry => entry.date === date
+        );
+
+
+        const newEntry = {
+
+            date: date,
+
+            positives: positives,
+
+            negatives: negatives,
+
+            wentWell: wentWell,
+
+            wentWrong: wentWrong,
+
+            dailyReflection: dailyReflection
+
+        };
+
+
+        if (existingIndex !== -1) {
+
+            reflections[existingIndex] = newEntry;
+
+        } else {
+
+            reflections.push(newEntry);
+
+        }
+
+
+        localStorage.setItem(
+            "myReflections",
+            JSON.stringify(reflections)
+        );
+
+
+        document.getElementById("saveMessage").textContent =
+            "Your reflection has been saved successfully! ♡";
+
+
+        displayReflections();
+
+    }
+
+
+    // Display saved reflections
+
+    function displayReflections() {
+
+        const container =
+            document.getElementById("savedReflections");
+
+        const reflections = getReflections();
+
+
+        if (reflections.length === 0) {
+
+            container.innerHTML = `
+                <p class="empty-message">
+                    Your saved reflections will appear here.
+                </p>
+            `;
+
+            return;
+
+        }
+
+
+        reflections.sort(
+            (a, b) => b.date.localeCompare(a.date)
+        );
+
+
+        container.innerHTML = "";
+
+
+        reflections.forEach((entry, index) => {
+
+            const card = document.createElement("div");
+
+            card.className = "saved-entry";
+
+
+            const title = document.createElement("h3");
+
+            title.textContent = "Reflection — " + entry.date;
+
+            card.appendChild(title);
+
+
+            const sections = [
+
+                ["♡ My Positives", entry.positives],
+
+                ["🌧 My Negatives", entry.negatives],
+
+                ["✨ What Went Well", entry.wentWell],
+
+                ["🪞 What Went Wrong", entry.wentWrong],
+
+                ["📝 Daily Reflection", entry.dailyReflection]
+
+            ];
+
+
+            sections.forEach(([heading, content]) => {
+
+                if (content) {
+
+                    const sectionTitle =
+                        document.createElement("strong");
+
+                    sectionTitle.textContent = heading;
+
+                    const paragraph =
+                        document.createElement("p");
+
+                    paragraph.textContent = content;
+
+                    card.appendChild(sectionTitle);
+
+                    card.appendChild(paragraph);
+
+                }
+
+            });
+
+
+            const editButton =
+                document.createElement("button");
+
+            editButton.className = "delete-entry";
+
+            editButton.textContent = "Edit Reflection";
+
+
+            editButton.onclick = function () {
+
+                dateInput.value = entry.date;
+
+                document.getElementById("positives").value =
+                    entry.positives || "";
+
+                document.getElementById("negatives").value =
+                    entry.negatives || "";
+
+                document.getElementById("wentWell").value =
+                    entry.wentWell || "";
+
+                document.getElementById("wentWrong").value =
+                    entry.wentWrong || "";
+
+                document.getElementById("dailyReflection").value =
+                    entry.dailyReflection || "";
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            };
+
+
+            card.appendChild(editButton);
+
+
+            const deleteButton =
+                document.createElement("button");
+
+            deleteButton.className = "delete-entry";
+
+            deleteButton.style.marginLeft = "10px";
+
+            deleteButton.textContent = "Delete";
+
+
+            deleteButton.onclick = function () {
+
+                if (
+                    confirm("Are you sure you want to delete this reflection?")
+                ) {
+
+                    let updatedReflections = getReflections();
+
+                    updatedReflections =
+                        updatedReflections.filter(
+                            item => item.date !== entry.date
+                        );
+
+                    localStorage.setItem(
+                        "myReflections",
+                        JSON.stringify(updatedReflections)
+                    );
+
+                    displayReflections();
+
+                }
+
+            };
+
+
+            card.appendChild(deleteButton);
+
+            container.appendChild(card);
+
+        });
+
+    }
+
+
+    // Load reflections when page opens
+
+    displayReflections();
+
+</script>
+
+</body>
+
+</html>

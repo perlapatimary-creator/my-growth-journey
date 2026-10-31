@@ -1,0 +1,1266 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Monthly Goals | My Growth Journey</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* GOALS PAGE */
+
+.goals-header {
+    margin-bottom: 25px;
+}
+
+.goals-header h1 {
+    color: #8D4E38;
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.goals-header p {
+    color: #8b7768;
+    line-height: 1.7;
+}
+
+.goals-banner {
+    background: linear-gradient(135deg, #8D4E38, #B9795B);
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+}
+
+.goals-banner h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.goals-banner p {
+    line-height: 1.8;
+}
+
+.month-selector-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.month-selector-box label {
+    color: #684735;
+    font-weight: 500;
+}
+
+.month-selector-box input {
+    padding: 12px;
+    border: 1px solid #E8D4BF;
+    border-radius: 10px;
+    background: #F8F1E7;
+    color: #8D4E38;
+    font-family: inherit;
+}
+
+.goal-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.summary-card {
+    background: #fffdf9;
+    border: 1px solid #E8D4BF;
+    padding: 22px;
+    border-radius: 16px;
+    min-width: 0;
+}
+
+.summary-card span {
+    color: #8b7768;
+    font-size: 13px;
+}
+
+.summary-card h2 {
+    color: #8D4E38;
+    font-size: 28px;
+    margin-top: 10px;
+}
+
+.overall-progress {
+    background: #fffdf9;
+    border: 1px solid #E8D4BF;
+    padding: 24px;
+    border-radius: 18px;
+    margin-bottom: 30px;
+}
+
+.overall-progress h3 {
+    color: #8D4E38;
+    margin-bottom: 15px;
+}
+
+.progress-track {
+    height: 12px;
+    background: #E8D4BF;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #8D4E38;
+    border-radius: 20px;
+    transition: width 0.3s;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 12px;
+    color: #8b7768;
+    font-size: 13px;
+}
+
+/* GOAL FORM */
+
+.goal-form {
+    background: #fffdf9;
+    border: 1px solid #E8D4BF;
+    padding: 28px;
+    border-radius: 20px;
+    margin-bottom: 35px;
+    min-width: 0;
+}
+
+.goal-form h2 {
+    color: #8D4E38;
+    margin-bottom: 8px;
+}
+
+.form-description {
+    color: #8b7768;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    color: #684735;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 13px;
+    border: 1px solid #E8D4BF;
+    border-radius: 10px;
+    background: #F8F1E7;
+    color: #5c3b2e;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #8D4E38;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.save-button {
+    background: #8D4E38;
+    color: white;
+    border: none;
+    padding: 13px 25px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.cancel-button {
+    background: #E8D4BF;
+    color: #8D4E38;
+    border: none;
+    padding: 13px 25px;
+    border-radius: 10px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* GOAL CARDS */
+
+.goals-list-section h2 {
+    color: #8D4E38;
+    margin-bottom: 8px;
+}
+
+.goals-list-section > p {
+    color: #8b7768;
+    margin-bottom: 20px;
+}
+
+.goals-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.goal-card {
+    background: #fffdf9;
+    border: 1px solid #E8D4BF;
+    border-radius: 18px;
+    padding: 24px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.goal-card h3 {
+    color: #8D4E38;
+    font-size: 18px;
+    margin-bottom: 10px;
+    overflow-wrap: anywhere;
+}
+
+.goal-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.category-badge {
+    background: #E8D4BF;
+    color: #8D4E38;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.goal-description {
+    color: #725d4c;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.goal-deadline {
+    color: #8b7768;
+    font-size: 12px;
+    margin-bottom: 18px;
+}
+
+.goal-card .progress-track {
+    height: 9px;
+}
+
+.goal-card .progress-fill {
+    background: #B9795B;
+}
+
+.goal-progress-info {
+    display: flex;
+    justify-content: space-between;
+    color: #8b7768;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.tasks-heading {
+    color: #8D4E38;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.task-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #725d4c;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.task-item input {
+    accent-color: #8D4E38;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.task-item.completed span {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.goal-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.goal-actions button {
+    border: none;
+    padding: 9px 15px;
+    border-radius: 8px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.edit-goal {
+    background: #E8D4BF;
+    color: #8D4E38;
+}
+
+.delete-goal {
+    background: #f4e1dc;
+    color: #9b4337;
+}
+
+.empty-goals {
+    background: #fffdf9;
+    border: 1px dashed #B9795B;
+    border-radius: 15px;
+    padding: 30px;
+    color: #8b7768;
+    text-align: center;
+    grid-column: 1 / -1;
+}
+
+/* LAYOUT FIX */
+
+* {
+    box-sizing: border-box;
+}
+
+.app-container {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.sidebar {
+    flex-shrink: 0;
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    width: auto;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.main-content > * {
+    max-width: 100%;
+}
+
+.goal-summary,
+.goals-container,
+.form-grid {
+    min-width: 0;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    .form-grid,
+    .goals-container,
+    .goal-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .goals-header h1 {
+        font-size: 24px;
+    }
+
+    .goal-form {
+        padding: 20px;
+    }
+
+    .main-content {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .goals-banner,
+    .overall-progress {
+        padding: 20px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .goal-top {
+        flex-direction: column;
+    }
+
+    .progress-info {
+        flex-wrap: wrap;
+    }
+
+    .goal-card {
+        padding: 18px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app-container">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+        <div class="logo-icon">✦</div>
+        <div>
+            <h2>My Journey</h2>
+            <p>Personal Growth</p>
+        </div>
+    </div>
+
+    <div class="profile">
+        <div class="profile-avatar">M</div>
+        <div>
+            <h3>My Space</h3>
+            <p>Becoming Better</p>
+        </div>
+    </div>
+
+    <nav class="navigation">
+
+        <p class="nav-heading">MENU</p>
+
+        <a href="index.html" class="nav-link">
+            <span>▦</span> Dashboard
+        </a>
+
+        <a href="self-analysis.html" class="nav-link">
+            <span>♡</span> Positives & Negatives
+        </a>
+
+        <a href="improvement.html" class="nav-link">
+            <span>↗</span> What Should I Change?
+        </a>
+
+        <a href="goals.html" class="nav-link active">
+            <span>◎</span> Monthly Goals
+        </a>
+
+        <a href="skills.html" class="nav-link">
+            <span>✎</span> Skills Development
+        </a>
+
+        <a href="money.html" class="nav-link">
+            <span>₹</span> Money & Freelancing
+        </a>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+        <p>“Small steps every day lead to big changes.”</p>
+        <span>♡ Keep Growing</span>
+    </div>
+
+</aside>
+
+<!-- MAIN CONTENT -->
+
+<main class="main-content">
+
+    <header class="top-header">
+
+        <div>
+            <p class="date-label">MONTHLY PLANNING</p>
+            <h1>My Goals & Dreams 🎯</h1>
+            <p class="header-subtitle">
+                Plan your month. Take action. Celebrate progress.
+            </p>
+        </div>
+
+        <div class="header-actions">
+            <a href="index.html" class="welcome-button">
+                ← Dashboard
+            </a>
+            <div class="header-avatar">M</div>
+        </div>
+
+    </header>
+
+    <section class="goals-header">
+
+        <h1>My Monthly Goals</h1>
+
+        <p>
+            Every month is a new beginning.
+            Set meaningful goals and make small progress every day.
+        </p>
+
+    </section>
+
+    <section class="goals-banner">
+
+        <h2>Dream It. Plan It. Achieve It. ✨</h2>
+
+        <p>
+            Your goals don't have to be perfect.
+            They just need to be important to you.
+            Let's make this month count.
+        </p>
+
+    </section>
+
+    <div class="month-selector-box">
+
+        <label for="goalMonth">Select Planning Month:</label>
+
+        <input type="month" id="goalMonth">
+
+    </div>
+
+    <section class="goal-summary">
+
+        <div class="summary-card">
+            <span>Total Goals</span>
+            <h2 id="totalGoals">0</h2>
+        </div>
+
+        <div class="summary-card">
+            <span>Completed Goals</span>
+            <h2 id="completedGoals">0</h2>
+        </div>
+
+        <div class="summary-card">
+            <span>Goals In Progress</span>
+            <h2 id="inProgressGoals">0</h2>
+        </div>
+
+    </section>
+
+    <section class="overall-progress">
+
+        <h3>My Monthly Progress</h3>
+
+        <div class="progress-track">
+            <div class="progress-fill" id="overallProgressBar"></div>
+        </div>
+
+        <div class="progress-info">
+            <span>Keep going, you're doing great!</span>
+            <strong id="overallProgressText">0%</strong>
+        </div>
+
+    </section>
+
+    <!-- ADD GOAL FORM -->
+
+    <section class="goal-form">
+
+        <h2 id="formTitle">Create a New Goal</h2>
+
+        <p class="form-description">
+            Write down what you want to achieve this month.
+        </p>
+
+        <form id="goalForm">
+
+            <div class="form-grid">
+
+                <div class="form-group full-width">
+                    <label for="goalTitle">Goal Name</label>
+                    <input
+                        type="text"
+                        id="goalTitle"
+                        placeholder="Example: Complete my JavaScript basics"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="goalCategory">Category</label>
+
+                    <select id="goalCategory">
+                        <option value="Personal">Personal</option>
+                        <option value="Education">Education</option>
+                        <option value="Career">Career</option>
+                        <option value="Money">Money</option>
+                        <option value="Health">Health</option>
+                        <option value="Skills">Skills</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="goalDeadline">Target Date</label>
+                    <input type="date" id="goalDeadline" required>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="goalDescription">Goal Description</label>
+
+                    <textarea
+                        id="goalDescription"
+                        placeholder="Why is this goal important to me?"
+                    ></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="goalTasks">Small Tasks / Steps</label>
+
+                    <textarea
+                        id="goalTasks"
+                        placeholder="Write each task on a new line.&#10;Study one topic&#10;Practice coding&#10;Complete one project"
+                    ></textarea>
+                </div>
+
+            </div>
+
+            <div class="form-buttons">
+
+                <button type="submit" class="save-button" id="submitButton">
+                    Save My Goal ♡
+                </button>
+
+                <button
+                    type="button"
+                    class="cancel-button"
+                    id="cancelButton"
+                    onclick="cancelEdit()"
+                    style="display:none;"
+                >
+                    Cancel
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+    <!-- GOALS LIST -->
+
+    <section class="goals-list-section">
+
+        <h2 id="goalsListTitle">My Goals</h2>
+
+        <p>
+            Check off each task as you complete it.
+            Your progress updates automatically.
+        </p>
+
+        <div class="goals-container" id="goalsContainer">
+
+            <div class="empty-goals">
+                <h3>No goals added yet 🌷</h3>
+                <p>Create your first goal above and start your monthly journey.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer class="footer">
+        <p>Made with ♡ for my future self.</p>
+        <span>My Growth Journey © 2026</span>
+    </footer>
+
+</main>
+
+</div>
+
+<script>
+
+// CURRENT MONTH
+
+const monthInput = document.getElementById("goalMonth");
+
+const today = new Date();
+
+const currentMonth =
+    today.getFullYear() + "-" +
+    String(today.getMonth() + 1).padStart(2, "0");
+
+monthInput.value = currentMonth;
+
+
+// DEFAULT DEADLINE
+
+function setDefaultDeadline() {
+
+    const year = Number(monthInput.value.split("-")[0]);
+    const month = Number(monthInput.value.split("-")[1]);
+
+    const lastDay = new Date(year, month, 0).getDate();
+    const day = Math.min(today.getDate(), lastDay);
+
+    document.getElementById("goalDeadline").value =
+        monthInput.value + "-" + String(day).padStart(2, "0");
+
+}
+
+setDefaultDeadline();
+
+
+// STORAGE
+
+function getStorageKey() {
+    return "monthlyGoals_" + monthInput.value;
+}
+
+function getGoals() {
+
+    try {
+        return JSON.parse(
+            localStorage.getItem(getStorageKey()) || "[]"
+        );
+    } catch (error) {
+        return [];
+    }
+
+}
+
+function storeGoals(goals) {
+
+    localStorage.setItem(
+        getStorageKey(),
+        JSON.stringify(goals)
+    );
+
+}
+
+
+// EDIT MODE
+
+let editingGoalId = null;
+
+
+// FORM SUBMISSION
+
+document.getElementById("goalForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const title =
+        document.getElementById("goalTitle").value.trim();
+
+    const category =
+        document.getElementById("goalCategory").value;
+
+    const deadline =
+        document.getElementById("goalDeadline").value;
+
+    const description =
+        document.getElementById("goalDescription").value.trim();
+
+    const tasksText =
+        document.getElementById("goalTasks").value.trim();
+
+
+    if (!title || !deadline) {
+        alert("Please enter the goal name and target date.");
+        return;
+    }
+
+
+    // CHECK SELECTED MONTH
+
+    if (!deadline.startsWith(monthInput.value)) {
+        alert("Please select a target date within the planning month.");
+        return;
+    }
+
+
+    const tasks = tasksText
+        .split("\n")
+        .map(task => task.trim())
+        .filter(task => task.length > 0);
+
+
+    let goals = getGoals();
+
+
+    // UPDATE EXISTING GOAL
+
+    if (editingGoalId !== null) {
+
+        goals = goals.map(function(goal) {
+
+            if (goal.id === editingGoalId) {
+
+                const oldTasks = goal.tasks || [];
+
+                const updatedTasks = tasks.map(function(task) {
+
+                    const oldTask = oldTasks.find(function(item) {
+                        return item.text === task;
+                    });
+
+                    return {
+                        text: task,
+                        completed: oldTask ? oldTask.completed : false
+                    };
+
+                });
+
+                return {
+                    ...goal,
+                    title: title,
+                    category: category,
+                    deadline: deadline,
+                    description: description,
+                    tasks: updatedTasks
+                };
+
+            }
+
+            return goal;
+
+        });
+
+    }
+
+
+    // CREATE NEW GOAL
+
+    else {
+
+        const newGoal = {
+            id: Date.now(),
+            title: title,
+            category: category,
+            deadline: deadline,
+            description: description,
+
+            tasks: tasks.map(function(task) {
+                return {
+                    text: task,
+                    completed: false
+                };
+            })
+        };
+
+        goals.push(newGoal);
+
+    }
+
+
+    storeGoals(goals);
+
+    cancelEdit();
+
+    displayGoals();
+
+});
+
+
+// CALCULATE PROGRESS
+
+function getGoalProgress(goal) {
+
+    const tasks = goal.tasks || [];
+
+    if (tasks.length === 0) {
+        return 0;
+    }
+
+    const completedTasks = tasks.filter(function(task) {
+        return task.completed;
+    }).length;
+
+    return Math.round(
+        (completedTasks / tasks.length) * 100
+    );
+
+}
+
+
+// SAFE TEXT DISPLAY
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+// DISPLAY GOALS
+
+function displayGoals() {
+
+    const goals = getGoals();
+
+    const container =
+        document.getElementById("goalsContainer");
+
+
+    const total = goals.length;
+
+    const completed = goals.filter(function(goal) {
+        return getGoalProgress(goal) === 100;
+    }).length;
+
+    const inProgress = goals.filter(function(goal) {
+        const progress = getGoalProgress(goal);
+        return progress > 0 && progress < 100;
+    }).length;
+
+
+    const overallProgress = total === 0 ? 0 :
+        Math.round(
+            goals.reduce(function(sum, goal) {
+                return sum + getGoalProgress(goal);
+            }, 0) / total
+        );
+
+
+    document.getElementById("totalGoals").textContent = total;
+
+    document.getElementById("completedGoals").textContent =
+        completed;
+
+    document.getElementById("inProgressGoals").textContent =
+        inProgress;
+
+    document.getElementById("overallProgressBar").style.width =
+        overallProgress + "%";
+
+    document.getElementById("overallProgressText").textContent =
+        overallProgress + "%";
+
+    document.getElementById("goalsListTitle").textContent =
+        "My Goals - " + monthInput.value;
+
+
+    // EMPTY STATE
+
+    if (goals.length === 0) {
+
+        container.innerHTML = `
+            <div class="empty-goals">
+                <h3>No goals added yet 🌷</h3>
+                <p>Create your first goal above and start your monthly journey.</p>
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    goals.sort(function(a, b) {
+        return a.deadline.localeCompare(b.deadline);
+    });
+
+
+    goals.forEach(function(goal) {
+
+        const progress = getGoalProgress(goal);
+
+        const card = document.createElement("div");
+
+        card.className = "goal-card";
+
+
+        const tasksHTML = (goal.tasks || []).map(
+            function(task, index) {
+
+                return `
+                    <label class="task-item ${task.completed ? "completed" : ""}">
+                        <input
+                            type="checkbox"
+                            ${task.completed ? "checked" : ""}
+                            onchange="toggleTask(${goal.id}, ${index}, this.checked)"
+                        >
+                        <span>${escapeHTML(task.text)}</span>
+                    </label>
+                `;
+
+            }
+        ).join("");
+
+
+        card.innerHTML = `
+
+            <div class="goal-top">
+                <h3>${escapeHTML(goal.title)}</h3>
+
+                <span class="category-badge">
+                    ${escapeHTML(goal.category)}
+                </span>
+            </div>
+
+            <p class="goal-description">
+                ${escapeHTML(goal.description || "No description added.")}
+            </p>
+
+            <p class="goal-deadline">
+                🎯 Target Date: ${escapeHTML(goal.deadline)}
+            </p>
+
+            <div class="progress-track">
+                <div
+                    class="progress-fill"
+                    style="width: ${progress}%"
+                ></div>
+            </div>
+
+            <div class="goal-progress-info">
+                <span>Task Progress</span>
+                <strong>${progress}%</strong>
+            </div>
+
+            <h4 class="tasks-heading">My Action Steps</h4>
+
+            <div class="task-list">
+                ${
+                    tasksHTML ||
+                    "<p class='goal-description'>No tasks added yet.</p>"
+                }
+            </div>
+
+            <div class="goal-actions">
+
+                <button
+                    type="button"
+                    class="edit-goal"
+                    onclick="editGoal(${goal.id})"
+                >
+                    ✎ Edit Goal
+                </button>
+
+                <button
+                    type="button"
+                    class="delete-goal"
+                    onclick="deleteGoal(${goal.id})"
+                >
+                    🗑 Delete
+                </button>
+
+            </div>
+        `;
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+// COMPLETE OR UNCOMPLETE TASK
+
+function toggleTask(goalId, taskIndex, isCompleted) {
+
+    const goals = getGoals();
+
+    const goal = goals.find(function(item) {
+        return item.id === goalId;
+    });
+
+    if (!goal || !goal.tasks[taskIndex]) {
+        return;
+    }
+
+    goal.tasks[taskIndex].completed = isCompleted;
+
+    storeGoals(goals);
+
+    displayGoals();
+
+}
+
+
+// EDIT GOAL
+
+function editGoal(goalId) {
+
+    const goals = getGoals();
+
+    const goal = goals.find(function(item) {
+        return item.id === goalId;
+    });
+
+    if (!goal) {
+        return;
+    }
+
+    editingGoalId = goalId;
+
+    document.getElementById("goalTitle").value = goal.title;
+
+    document.getElementById("goalCategory").value =
+        goal.category;
+
+    document.getElementById("goalDeadline").value =
+        goal.deadline;
+
+    document.getElementById("goalDescription").value =
+        goal.description || "";
+
+    document.getElementById("goalTasks").value =
+        (goal.tasks || [])
+            .map(function(task) {
+                return task.text;
+            })
+            .join("\n");
+
+    document.getElementById("formTitle").textContent =
+        "Edit Your Goal";
+
+    document.getElementById("submitButton").textContent =
+        "Update My Goal ♡";
+
+    document.getElementById("cancelButton").style.display =
+        "inline-block";
+
+    document.querySelector(".goal-form").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+// CANCEL EDIT
+
+function cancelEdit() {
+
+    editingGoalId = null;
+
+    document.getElementById("goalForm").reset();
+
+    document.getElementById("formTitle").textContent =
+        "Create a New Goal";
+
+    document.getElementById("submitButton").textContent =
+        "Save My Goal ♡";
+
+    document.getElementById("cancelButton").style.display =
+        "none";
+
+    setDefaultDeadline();
+
+}
+
+
+// DELETE GOAL
+
+function deleteGoal(goalId) {
+
+    const confirmDelete = confirm(
+        "Are you sure you want to delete this goal?"
+    );
+
+    if (!confirmDelete) {
+        return;
+    }
+
+    let goals = getGoals();
+
+    goals = goals.filter(function(goal) {
+        return goal.id !== goalId;
+    });
+
+    storeGoals(goals);
+
+    if (editingGoalId === goalId) {
+        cancelEdit();
+    }
+
+    displayGoals();
+
+}
+
+
+// CHANGE MONTH
+
+monthInput.addEventListener("change", function() {
+
+    if (!monthInput.value) {
+        monthInput.value = currentMonth;
+    }
+
+    cancelEdit();
+
+    displayGoals();
+
+});
+
+
+// INITIAL DISPLAY
+
+displayGoals();
+
+</script>
+
+</body>
+</html>
